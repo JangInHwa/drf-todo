@@ -1,8 +1,7 @@
-from django.contrib import admin
-from django.urls import path, include
-from .views import todo_detail, todos
+from django.urls import path
+from .views import TodoView, TodoDetailView
 
 urlpatterns = [
-	path('todos/', todos),
-    path('todos/<int:pk>', todo_detail)
+	path('todos/', TodoView.as_view(), name='moview-list'),
+    path('todos/<int:pk>', TodoDetailView.as_view(), name='movie-detail'),
 ]
